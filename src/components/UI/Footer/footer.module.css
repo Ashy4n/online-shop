@@ -1,7 +1,8 @@
 @import url("../../../css/colors.css");
 
 .footer {
-  height: 100px;
+  height: 70px;
+  color: var(--light);
   background-color: var(--primary);
   display: flex;
   position: absolute;
