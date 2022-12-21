@@ -1,0 +1,29 @@
+.itemContainer {
+  margin: 30px;
+}
+.itemContainer img {
+  border: 1px black solid;
+  width: 250px;
+  border-radius: 30px;
+  margin: 10px;
+}
+.itemContainer h1 {
+  font-size: 2rem;
+}
+.itemContainer div {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px black solid;
+  color: var(--light);
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.itemContainer button {
+  color: white;
+  border: none;
+  background-color: transparent;
+  margin-top: 10px;
+  font-size: 2rem;
+}

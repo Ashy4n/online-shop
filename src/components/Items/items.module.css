@@ -1,0 +1,7 @@
+.itemsContainer {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  top: 200px;
+}
