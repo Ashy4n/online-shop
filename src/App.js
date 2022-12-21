@@ -1,6 +1,12 @@
+import Footer from "./UI/Footer/Footer";
+
+
 function App() {
   return (
-    <h1>Hello</h1>
+    <>
+      <Footer></Footer>
+    </>
+
   );
 }
 
