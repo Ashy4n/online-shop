@@ -1,7 +1,6 @@
-
-import Items from "./components/Items/Items";
-import Footer from "./components/UI/Footer/Footer";
-import Navigation from "./components/UI/Navigation/Navigation";
+import Footer from "./components/Layout/Footer/Footer";
+import Navigation from "./components/Layout/Navigation/Navigation";
+import Items from "./components/Products/Items/Items";
 
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
     <>
       <Navigation />
       <Items />
-      <Footer></Footer>
+      <Footer />
     </>
 
   );
