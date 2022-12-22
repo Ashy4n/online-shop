@@ -20,9 +20,16 @@
   font-size: 1.5rem;
   width: 50px;
   border-radius: 5px;
-  margin-right: 40px;
 }
 
 .itemContainer h1 {
   font-weight: bold;
+}
+.itemContainer i {
+  font-size: 1.8rem;
+  margin-right: 40px;
+}
+.itemContainer i:hover {
+  color: red;
+  font-size: 1.8rem;
 }

@@ -1,9 +1,9 @@
 import styles from './Modal.module.css'
 import ReactDOM from 'react-dom';
 
-const Backdrop = () => {
+const Backdrop = (props) => {
     return (
-        <div className={styles.backdrop}>
+        <div onClick={props.onClick} className={styles.backdrop}>
         </div>
     )
 }
@@ -21,7 +21,7 @@ const Modal = (props) => {
     const portalLocation = document.getElementById('overlays');
     return (
         <>
-            {ReactDOM.createPortal(<Backdrop></Backdrop>, portalLocation)}
+            {ReactDOM.createPortal(<Backdrop onClick={props.onBackdropClick}></Backdrop>, portalLocation)}
             {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalLocation)}
         </>
     )
