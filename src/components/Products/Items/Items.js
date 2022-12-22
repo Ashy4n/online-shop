@@ -1,7 +1,7 @@
 import Item from "../Item/Item"
 import styles from "./items.module.css"
 
-const ItemsArrey = [
+const DUMMY_ITEMS = [
     {
         name: "Iphone 13",
         price: 3999,
@@ -30,11 +30,18 @@ const ItemsArrey = [
 ]
 
 const Items = (props) => {
+    const itemsList = DUMMY_ITEMS.map((item => {
+        return <Item
+            name={item.name}
+            imgUrl={item.imgUrl}
+            description={item.description}
+            price={item.price}
+        />
+    }))
+
     return (
         <div className={styles.itemsContainer}>
-            {ItemsArrey.map((item => {
-                return <Item name={item.name} imgUrl={item.imgUrl} description={item.description} price={item.price} />
-            }))}
+            {itemsList}
         </div>
     )
 }

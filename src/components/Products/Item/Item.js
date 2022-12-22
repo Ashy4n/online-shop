@@ -1,3 +1,4 @@
+import ItemForm from "./ItemForm"
 import styles from "./item.module.css"
 
 
@@ -6,17 +7,11 @@ const Item = (props) => {
         <div className={styles.itemContainer}>
             <img src={props.imgUrl}></img>
             <div className={styles.itemInfo}>
-                <h1>
-                    {props.name}
-                </h1>
-                <p>
-                    {props.description}
-                </p>
+                <h1>{props.name}</h1>
+                <p>{props.description} </p>
                 <div>
-                    <p>
-                        ${props.price}
-                    </p>
-                    <button><i class="fa-solid fa-cart-shopping"></i></button>
+                    <p>${props.price} </p>
+                    <ItemForm />
                 </div>
             </div>
         </div>
