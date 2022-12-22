@@ -21,8 +21,8 @@ const CartProvider = (props) => {
         distpatchCart({ type: "ADD", item: item })
     }
 
-    const removeItemFromCart = (id) => {
-        distpatchCart({ type: "REMOVE", id: id })
+    const removeItemFromCart = (name) => {
+        distpatchCart({ type: "REMOVE", name: name })
     }
 
 

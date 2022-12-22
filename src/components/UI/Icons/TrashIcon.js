@@ -1,6 +1,6 @@
-const ThrashIcon = () => {
+const ThrashIcon = (props) => {
     return (
-        <i class="fa-solid fa-trash"></i>
+        <i onClick={props.onClick} className="fa-solid fa-trash"></i>
     )
 }
 export default ThrashIcon

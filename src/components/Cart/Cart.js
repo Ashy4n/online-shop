@@ -11,13 +11,14 @@ const Cart = (props) => {
 
     const itemsList = cartItems.map((item => {
         return <CartItem
+            key={item.id}
             name={item.name}
             imgUrl={item.img}
             price={item.price}
             amount={item.amount}
         />
     }))
-
+    console.log(parseFloat(cartCtx.totalAmount))
     return (<>
 
         <Modal onBackdropClick={props.onCloseClick}>

@@ -32,6 +32,7 @@ const DUMMY_ITEMS = [
 const Items = (props) => {
     const itemsList = DUMMY_ITEMS.map((item => {
         return <Item
+            key={item.name}
             name={item.name}
             imgUrl={item.imgUrl}
             description={item.description}

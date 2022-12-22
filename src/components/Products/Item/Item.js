@@ -8,10 +8,11 @@ const Item = (props) => {
 
     const onSubmit = (amount) => {
         cartCtx.addItem({
+            id: Math.random(),
             name: props.name,
-            price: parseInt(props.price),
+            price: parseFloat(props.price),
             img: props.imgUrl,
-            amount: parseInt(amount)
+            amount: parseFloat(amount)
         })
     }
 

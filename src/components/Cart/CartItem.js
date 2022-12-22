@@ -11,6 +11,11 @@ const CartItem = (props) => {
         setAmount(event.target.value)
     }
 
+    const removeItem = () => {
+        console.log(props.name)
+        cartCtx.removeItem(props.name)
+    }
+
     return (
         <div className={styles.itemContainer}>
             <img src={props.imgUrl} />
@@ -18,7 +23,7 @@ const CartItem = (props) => {
             <p>${props.price} </p>
 
             <input onChange={changeAmountHndl} type="number" value={amount}></input>
-            <ThrashIcon />
+            <ThrashIcon onClick={removeItem} />
         </div>
 
     )
