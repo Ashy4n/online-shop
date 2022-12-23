@@ -37,11 +37,29 @@ const cartReducer = (state, action) => {
     }
     if (action.type === "REMOVE") {
         const updatedItems = []
-        let updatedAmount = 0;
+        let updatedAmount = 0
         state.items.forEach(item => {
             if (item.name !== action.name) {
                 updatedItems.push(item)
-                updatedAmount = + item.price * item.amount;
+                updatedAmount += item.price * item.amount
+            }
+        });
+        return {
+            items: updatedItems,
+            totalAmount: updatedAmount
+        }
+    }
+    if (action.type === "REMOVE_AMOUNT") {
+        const updatedItems = []
+        let updatedAmount = 0
+        state.items.forEach(item => {
+            if (item.name !== action.name) {
+                updatedItems.push(item)
+                updatedAmount += item.price * item.amount
+            } else {
+                item.amount -= action.amount;
+                updatedItems.push(item);
+                updatedAmount += item.price * item.amount;
             }
         });
         return {

@@ -25,12 +25,16 @@ const CartProvider = (props) => {
         distpatchCart({ type: "REMOVE", name: name })
     }
 
+    const decreseAmount = (name, amount) => {
+        distpatchCart({ type: "REMOVE_AMOUNT", name: name, amount: amount })
+    }
 
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCart,
         removeItem: removeItemFromCart,
+        decreseAmount: decreseAmount
     }
 
     return (
