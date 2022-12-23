@@ -31,13 +31,12 @@ const CartItem = (props) => {
     }
 
     const removeItem = () => {
-        console.log(props.name)
         cartCtx.removeItem(props.name)
     }
 
     return (
         <div className={styles.itemContainer}>
-            <img src={props.imgUrl} />
+            <img src={props.imgUrl} alt={props.name} />
             <h1>{props.name}</h1>
             <p>${props.price} </p>
 
