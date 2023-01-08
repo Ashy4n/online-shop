@@ -7,10 +7,14 @@ import Loader from "../../UI/Loader";
 const Items = (props) => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [httpErr, setHttpErr] = useState(null);
     useEffect(() => {
         const fetchUrl = "https://react-a9331-default-rtdb.europe-west1.firebasedatabase.app/Items.json";
         const fetchItems = async () => {
             const res = await fetch(fetchUrl);
+            if (!res.ok) {
+                throw new Error()
+            }
             const responseData = await res.json();
             const loadedItems = []
             for (const item in responseData) {
@@ -22,11 +26,15 @@ const Items = (props) => {
                     description: responseData[item].description
                 })
             }
-
-            setItems(loadedItems);
             setIsLoading(false);
+            setItems(loadedItems);
         }
-        fetchItems();
+
+        fetchItems().catch(err => {
+            setIsLoading(false);
+            setHttpErr(err.message);
+        });
+
     }, [])
 
 
@@ -40,10 +48,10 @@ const Items = (props) => {
         />
     }))
 
-
     return (
         <div className={styles.itemsContainer}>
             {!isLoading ? itemsList : < Loader />}
+            {httpErr ?? httpErr}
         </div>
     )
 }
