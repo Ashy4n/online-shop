@@ -27,8 +27,17 @@ const Checkout = (props) => {
             street: notEmpty(enteredStreet),
             city: notEmpty(enteredCity),
         })
-        console.log(isFormValid.name)
+        if (!(notEmpty(enteredName) && notEmpty(enteredEmail) && notEmpty(enteredStreet) && notEmpty(enteredCity))) {
+            return
+        }
+        props.onConfirm({
+            name: enteredName,
+            email: enteredEmail,
+            street: enteredStreet,
+            city: enteredCity
+        })
     }
+
     console.log();
     return (
         <form className={styles.form}>

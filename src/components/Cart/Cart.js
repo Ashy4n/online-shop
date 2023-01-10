@@ -11,9 +11,6 @@ const Cart = (props) => {
 
     const [isCheckout, setIsCheckout] = useState(false);
 
-    const toggleCheckout = () => {
-        setIsCheckout(!isCheckout);
-    }
 
     const itemsList = cartItems.map((item => {
         return <CartItem
@@ -24,7 +21,24 @@ const Cart = (props) => {
             amount={item.amount}
         />
     }))
-    console.log(parseFloat(cartCtx.totalAmount))
+
+    //Checkout
+
+    const toggleCheckout = () => {
+        setIsCheckout(!isCheckout);
+    }
+
+    const onCheckoutSubmit = (checkoutData) => {
+        fetch('https://react-a9331-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', {
+            method: 'POST',
+            body: JSON.stringify({
+                user: checkoutData,
+                orderedItems: cartItems,
+                orderPrice: cartCtx.totalAmount
+            })
+        })
+    }
+
     return (<>
 
         <Modal onBackdropClick={props.onCloseClick}>
@@ -35,7 +49,7 @@ const Cart = (props) => {
                     <p>Total price</p>
                     <p>{cartCtx.totalAmount}</p>
                 </div>
-                {isCheckout ? <Checkout onClose={toggleCheckout} /> : <div className={styles.btnContainer}>
+                {isCheckout ? <Checkout onClose={toggleCheckout} onConfirm={onCheckoutSubmit} /> : <div className={styles.btnContainer}>
                     <button onClick={toggleCheckout}>Checkout</button>
                     <button onClick={props.onCloseClick}>Close</button>
                 </div>}
