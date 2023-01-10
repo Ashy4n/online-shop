@@ -26,12 +26,20 @@
   margin: 20px;
 }
 
-.cartContainer div {
+.btnContainer {
+  margin: 10px;
   margin: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.btnContainer {
-  margin: 10px;
+
+.loaderModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 100px;
+  box-shadow: 2px 2px 25px 3px black;
 }
