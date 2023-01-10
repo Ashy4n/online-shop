@@ -1,13 +1,19 @@
 import Modal from '../UI/Modal';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from "../../store/cartContext"
+import Checkout from './Checkout';
 
 const Cart = (props) => {
     const cartCtx = useContext(CartContext)
-
     const cartItems = cartCtx.items
+
+    const [isCheckout, setIsCheckout] = useState(false);
+
+    const toggleCheckout = () => {
+        setIsCheckout(!isCheckout);
+    }
 
     const itemsList = cartItems.map((item => {
         return <CartItem
@@ -22,17 +28,18 @@ const Cart = (props) => {
     return (<>
 
         <Modal onBackdropClick={props.onCloseClick}>
+            {cartItems.length === 0 ? <div className={styles.emptyCart}>Cart is empty</div> : itemsList}
 
-            {itemsList}
             <div className={styles.cartContainer}>
                 <div>
                     <p>Total price</p>
                     <p>{cartCtx.totalAmount}</p>
                 </div>
-                <div className={styles.btnContainer}>
-                    <button>Checkout</button>
+                {isCheckout ? <Checkout onClose={toggleCheckout} /> : <div className={styles.btnContainer}>
+                    <button onClick={toggleCheckout}>Checkout</button>
                     <button onClick={props.onCloseClick}>Close</button>
-                </div>
+                </div>}
+
             </div>
         </Modal>
 

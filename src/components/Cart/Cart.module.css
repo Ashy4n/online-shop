@@ -18,6 +18,13 @@
   font-size: 2rem;
   background-color: var(--secondary);
 }
+.emptyCart {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+}
 
 .cartContainer div {
   margin: 10px;
